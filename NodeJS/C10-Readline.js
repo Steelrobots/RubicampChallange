@@ -11,16 +11,16 @@ rl.on('line', (line) => {
     let arrSent = line.split(" ");
     let arrNew = [];
     let output = [];
-    
+
     for (let i = 0; i < arrSent.length; i++) {
-        if(arrSent[i].charAt(0).match(/[aiueoAIUEO]/)){
+        if (arrSent[i].charAt(0).match(/[aiueoAIUEO]/)) {
             output.push(arrSent[i]);
         } else {
             output.push(arrSent[i].slice(1).concat(arrSent[i].charAt(0)).concat('nyo'))
         }
-        
-        
-    }console.log('hasil konversi :' +output.join(' '));
+
+
+    } console.log('hasil konversi :' + output.join(' '));
 
     rl.prompt();
 }).on('close', () => {
