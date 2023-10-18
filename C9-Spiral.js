@@ -1,13 +1,12 @@
 function spiral(param1) {
-    let array = [];
-    let hasil = [];
+    let arr = [];
     let baru = 0;
 
 
     for (let i = 0; i < param1; i++) {
-        array[i] = [];
+        arr[i] = [];
         for (let j = 0; j < param1; j++) {
-            array[i][j] = baru;
+            arr[i][j] = baru;
             baru++;
         }
     }
@@ -15,29 +14,36 @@ function spiral(param1) {
     let frontCol = 0;
     let lastCol = param1 - 1;
     let lastRow = param1 - 1;
-    while (frontRow <= lastRow && frontCol <= lastCol) {
-        for (let j = frontRow; j <= lastCol; j++) {
-            hasil.push(array[frontRow][j])
-        }
-        frontRow++
-        for (let k = frontRow; k <= lastRow; k++) {
-            hasil.push(array[k][lastCol]);
-        }
-        lastCol--
+    let kurung = [];
+    while (frontCol <= lastCol && frontRow <= lastRow) {
 
-        for (let l = lastCol; l >= frontCol; l--) {
-            hasil.push(array[lastRow][l]);
+        for (let i = frontCol; i <= lastCol; i++) {
+            kurung.push(arr[frontRow][i])
         }
-        lastRow--
+        frontRow++;
 
-        for (let m = lastRow; m >= frontRow; m--) {
-            hasil.push(array[m][frontRow]);
+
+        for (let i = frontRow; i <= lastRow; i++) {
+            kurung.push(arr[i][lastCol])
         }
-        frontRow++
+        lastCol--;
+
+        if (frontRow <= lastRow)
+            for (let i = lastCol; i >= frontCol; i--) {
+                kurung.push(arr[lastRow][i])
+            }
+        lastRow--;
+
+        if (frontCol <= lastCol) {
+            for (let i = lastRow; i >= frontRow; i--) {
+                kurung.push(arr[i][frontCol])
+            }
+            frontCol++;
+        }
     }
-
-    console.log(hasil);
+    console.log(kurung);
 }
+
 
 spiral(5);
 spiral(6);

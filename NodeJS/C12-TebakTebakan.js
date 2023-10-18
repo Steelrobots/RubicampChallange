@@ -1,5 +1,4 @@
 const fs = require('node:fs');
-const process = require('node:process');
 const readline = require('node:readline');
 const rl = readline.createInterface({
     input: process.stdin,
@@ -31,21 +30,21 @@ rl.on('line', (line) => {
         if (i == reference.length) {
             console.log('Anda berhasil!');
             rl.close();
-    }   console.log(`pertanyaan: ${reference[i].definition}`);
-}
-    else if(line == "skip") {
+        } console.log(`pertanyaan: ${reference[i].definition}`);
+    }
+    else if (line == "skip") {
         reference.push(reference[i]);
         reference.splice(i, 1);
         salah = 0
         console.log(`pertanyaan: ${reference[i].definition}`);
-    } else{
+    } else {
         salah++
-        console.log(`Anda kurang beruntung! anda telah salah ${salah} kali, silahkan coba lagi.\n`);    
+        console.log(`Anda kurang beruntung! anda telah salah ${salah} kali, silahkan coba lagi.\n`);
     };
-     
-        rl.prompt();
-   
+
+    rl.prompt();
+
 }).on('close', () => {
-    console.log('Anda berhasil!');
+    
     process.exit(0);
 });
