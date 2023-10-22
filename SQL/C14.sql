@@ -22,7 +22,11 @@ insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS, Jurusan_ID) values
 ('32', 'Pola Pikir Masyarakat Jepang', 2, '013'),
 ('13', 'Interpretting', 3, '011'),
 ('34', 'Chuukyuu Nihongo', 3, '013'),
-('25', 'Telaah Naskah Arab dan Teks Alquran', 4, '012');
+('25', 'Telaah Naskah Arab dan Teks Alquran', 4, '012'),
+('5', 'Pendidikan Kewarganegaraan', 2, '010');
+
+select * from Mata_kuliah;
+
 
 create table Dosen(
     NIP character(4) primary key not null,
