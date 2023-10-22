@@ -25,15 +25,17 @@ insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS) values
 create table Dosen(
     NIP character(4) primary key not null,
     Nama_Dosen varchar(30) not null,
-    Jurusan_ID character(3) not null,
-    foreign key(Jurusan_ID) references Jurusan (Jurusan_ID)
+    Matkul_ID character(2) not null,
+    foreign key(Matkul_ID) references Mata_kuliah (Matkul_ID)
 );
 
-insert into Dosen(NIP, Nama_Dosen, Jurusan_ID) values
-('1031', 'Dra Susi Machdalena Ph.D', '010'),
-('1033', 'Ani Rahmat Ph.D', '010'),
-('1221', 'Prof Dr Tajudin', '012'),
-('1344', 'Budi Rukhyana', '013');
+insert into Dosen(NIP, Nama_Dosen, Matkul_ID) values
+('1031', 'Dra Susi Machdalena Ph.D', '11'),
+('1033', 'Ani Rahmat Ph.D', '11'),
+('1221', 'Prof Dr Tajudin', '32'),
+('1344', 'Budi Rukhyana', '34'),
+('1321', 'Yuni Yulianti', '13'),
+('1211', 'Djoni Suhendar', '25');
 
 select * from Dosen;
 
