@@ -13,17 +13,16 @@ create table Mata_kuliah(
     Matkul_ID character(2) primary key not null,
     Matkul_nama varchar(30) not null,
     SKS int(2) not null,
-    Jurusan_ID character(3) not null,
-    foreign key(Jurusan_ID) references Jurusan (Jurusan_ID)
+   
 );
 
-insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS, Jurusan_ID) values
-('11', 'Fonetika Rusia', 2, '010'),
-('32', 'Pola Pikir Masyarakat Jepang', 2, '013'),
-('13', 'Interpretting', 3, '011'),
-('34', 'Chuukyuu Nihongo', 3, '013'),
-('25', 'Telaah Naskah Arab dan Teks Alquran', 4, '012'),
-('5', 'Pendidikan Kewarganegaraan', 2, '010');
+insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS) values
+('11', 'Fonetika Rusia', 2),
+('32', 'Pola Pikir Masyarakat Jepang', 2),
+('13', 'Interpretting', 3),
+('34', 'Agama', 3),
+('25', 'Telaah Naskah Arab dan Teks Alquran', 4),
+('5', 'Pendidikan Kewarganegaraan', 2);
 
 select * from Mata_kuliah;
 
