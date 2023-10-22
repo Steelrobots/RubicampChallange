@@ -16,11 +16,11 @@ create table Mata_kuliah(
 );
 
 insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS) values
-('21', 'Fonetika Rusia', 2),
-('22', 'Folklore Rusia', 1),
-('23', 'Teori Terjemahan Bahasa Rusia', 3),
-('24', 'Semantika', 2),
-('25', 'Leksika Bahasa Rusia', 4);
+('11', 'Fonetika Rusia', 2),
+('32', 'Pola Pikir Masyarakat Jepang', 2),
+('13', 'Interpretting', 3),
+('34', 'Chuukyuu Nihongo', 3),
+('25', 'Telaah Naskah Arab dan Teks Alquran', 4);
 
 create table Dosen(
     NIP character(4) primary key not null,
@@ -65,10 +65,10 @@ create table kontrak(
 );
 
 insert into kontrak(NIP, Matkul_ID, NIM, Nilai) values
-('1031', '21', '140052', 'A'),
-('1033', '22', '140038', 'B+'),
-('1221', '23', '230012', 'C'),
-('1344', '24', '180022', 'A'),
+('1031', '11', '140052', 'A'),
+('1033', '13', '140038', 'B+'),
+('1221', '32', '230012', 'C'),
+('1344', '34', '180022', 'A'),
 ('1031', '25', '140038', 'A');
 
 select * from kontrak;
