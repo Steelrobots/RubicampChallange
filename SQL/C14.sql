@@ -12,7 +12,7 @@ insert into Jurusan(Jurusan_ID, Jurusan_name) values
 create table Mata_kuliah(
     Matkul_ID character(2) primary key not null,
     Matkul_nama varchar(30) not null,
-    SKS int(2) not null,
+    SKS int(2) not null
    
 );
 
@@ -30,17 +30,16 @@ select * from Mata_kuliah;
 create table Dosen(
     NIP character(4) primary key not null,
     Nama_Dosen varchar(30) not null,
-    Matkul_ID character(2) not null,
-    foreign key(Matkul_ID) references Mata_kuliah (Matkul_ID)
+
 );
 
-insert into Dosen(NIP, Nama_Dosen, Matkul_ID) values
-('1031', 'Dra Susi Machdalena Ph.D', '11'),
-('1033', 'Ani Rahmat Ph.D', '11'),
-('1221', 'Prof Dr Tajudin', '32'),
-('1344', 'Budi Rukhyana', '34'),
-('1321', 'Yuni Yulianti', '13'),
-('1211', 'Djoni Suhendar', '25');
+insert into Dosen(NIP, Nama_Dosen) values
+('1031', 'Dra Susi Machdalena Ph.D'),
+('1033', 'Ani Rahmat Ph.D'),
+('1221', 'Prof Dr Tajudin'),
+('1344', 'Budi Rukhyana'),
+('1321', 'Yuni Yulianti'),
+('1211', 'Djoni Suhendar');
 
 select * from Dosen;
 
