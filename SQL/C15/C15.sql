@@ -20,7 +20,7 @@ insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS) values
 ('11', 'Fonetika Rusia', 2),
 ('22', 'Pola Pikir Masyarakat Jepang', 2),
 ('33', 'Interpretting', 3),
-('44', 'Data mining', 3),
+('44', 'Warehouse and Data mining', 3),
 ('55', 'Telaah Naskah Arab dan Teks Alquran', 4),
 ('66', 'Pendidikan Kewarganegaraan', 2);
 
@@ -145,7 +145,7 @@ having total_sks > 10;
 SELECT kontrak.NIM, mahasiswa.Nama_Mahasiswa, Mata_kuliah.Matkul_nama as MataKuliah 
 FROM kontrak INNER JOIN Mahasiswa ON kontrak.NIM = Mahasiswa.NIM
 INNER JOIN Mata_kuliah ON kontrak.Matkul_ID = Mata_kuliah.Matkul_ID
-WHERE Mata_kuliah.Matkul_nama like 'DATA MINING%';
+WHERE Mata_kuliah.Matkul_nama like '%DATA MINING%';
 
 --6.tampilkan jumlah mahasiswa untuk setiap dosen
 select Nama_Dosen,(select count(distinct NIM) from kontrak where kontrak.NIP = Dosen.NIP) as Jumlah_mahasiswa from Dosen;
