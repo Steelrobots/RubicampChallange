@@ -131,9 +131,8 @@ select Nama_Mahasiswa,Jurusan_name from Jurusan join Mahasiswa using(Jurusan_ID)
 select *,Date('now') - Date(umur) as age from Mahasiswa where age<20;
 
 --3.tampilkan mahasiswa yang  memiliki  nilai 'B' ke atas.
-select distinct Mahasiswa.NIM,Nama_Mahasiswa,kontrak.Nilai from Mahasiswa 
-join kontrak on Mahasiswa.NIM = kontrak.NIM where kontrak.Nilai <= 'B';
---SELECT DISTINCT NIM,(SELECT Nama_Mahasiswa FROM Mahasiswa WHERE Mahasiswa.NIM = kontrak.NIM) AS nama FROM kontrak WHERE kontrak.Nilai = 'B' or kontrak.Nilai = 'A';
+select distinct NIM, (select Nama_Mahasiswa from Mahasiswa where Mahasiswa.NIM = kontrak.NIM) as nama 
+from kontrak where kontrak.Nilai <= 'B' ;
 
 --4.tampilkan mahasiswa yang memiliki jumlah sks lebih dari 10
 select Mahasiswa.NIM, Mahasiswa.Nama_Mahasiswa, SUM(Mata_kuliah.sks) as total_sks from Mahasiswa
@@ -155,7 +154,7 @@ select *,(select count(distinct NIM) from kontrak where kontrak.NIP = Dosen.NIP)
 select *, Date('now') - Date(umur) as Umur_saat_ini from Mahasiswa order by Umur_saat_ini asc;
 
 --8.tampilkan kontrak matakuliah yang harus diulang,serta tampilkan data mahasiswa jurusan dan dosen secara lengkap
-select distinct * from kontrak join Mahasiswa on kontrak.NIM = Mahasiswa.NIM
+select distinct  from kontrak join Mahasiswa on kontrak.NIM = Mahasiswa.NIM
 join Jurusan on mahasiswa.Jurusan_ID = Jurusan.Jurusan_ID
 join Dosen on kontrak.NIP = Dosen.NIP where kontrak.Nilai >= 'D';
 
