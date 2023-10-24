@@ -148,10 +148,10 @@ INNER JOIN Mata_kuliah ON kontrak.Matkul_ID = Mata_kuliah.Matkul_ID
 WHERE Mata_kuliah.Matkul_nama like 'DATA MINING%';
 
 --6.tampilkan jumlah mahasiswa untuk setiap dosen
-select *,(select count(distinct NIM) from kontrak where kontrak.NIP = Dosen.NIP) as Jumlah_mahasiswa from Dosen;
+select Nama_Dosen,(select count(distinct NIM) from kontrak where kontrak.NIP = Dosen.NIP) as Jumlah_mahasiswa from Dosen;
 
 --7.urutkan mahasiswa berdasarkan umurnya
-select *, Date('now') - Date(umur) as Umur_saat_ini from Mahasiswa order by Umur_saat_ini asc;
+select Nama_Mahasiswa, Date('now') - Date(umur) as Umur_saat_ini from Mahasiswa order by Umur_saat_ini asc;
 
 --8.tampilkan kontrak matakuliah yang harus diulang,serta tampilkan data mahasiswa jurusan dan dosen secara lengkap
 
