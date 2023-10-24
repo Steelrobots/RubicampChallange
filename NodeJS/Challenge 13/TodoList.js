@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 const data = fs.readFileSync("./toDo.json", "utf-8");
 const obj = JSON.parse(data);
-const command = process.argv[2], id = process.argv[3], inform = process.argv.slice(3).join(' ');
+const command = process.argv[2].toLowerCase(), id = process.argv[3], inform = process.argv.slice(3).join(' ');
 
 let hapus = id - 1
 let tambah = obj.length + 1
@@ -113,7 +113,7 @@ switch (command) {
         break;
     case 'tag':
         console.log(`"Tag ${process.argv.slice(4)}" telah ditambahkan ke dalam '${obj[obj.findIndex(x => x.ID == id)].title} `);
-        obj[hapus].tag = process.argv.slice(4);
+        obj[hapus].tag = obj[hapus].tag.concat(process.argv.slice(4));
 
         fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
         break;
