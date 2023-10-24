@@ -20,7 +20,7 @@ insert into Mata_kuliah(Matkul_ID, Matkul_nama, SKS) values
 ('11', 'Fonetika Rusia', 2),
 ('22', 'Pola Pikir Masyarakat Jepang', 2),
 ('33', 'Interpretting', 3),
-('44', 'Agama', 3),
+('44', 'Data mining', 3),
 ('55', 'Telaah Naskah Arab dan Teks Alquran', 4),
 ('66', 'Pendidikan Kewarganegaraan', 2);
 
@@ -145,7 +145,7 @@ having total_sks > 10;
 SELECT kontrak.NIM, mahasiswa.Nama_Mahasiswa, Mata_kuliah.Matkul_nama as MataKuliah 
 FROM kontrak INNER JOIN Mahasiswa ON kontrak.NIM = Mahasiswa.NIM
 INNER JOIN Mata_kuliah ON kontrak.Matkul_ID = Mata_kuliah.Matkul_ID
-WHERE Mata_kuliah.Matkul_nama = 'Agama';
+WHERE Mata_kuliah.Matkul_nama like 'DATA MINING%';
 
 --6.tampilkan jumlah mahasiswa untuk setiap dosen
 select *,(select count(distinct NIM) from kontrak where kontrak.NIP = Dosen.NIP) as Jumlah_mahasiswa from Dosen;
@@ -154,7 +154,10 @@ select *,(select count(distinct NIM) from kontrak where kontrak.NIP = Dosen.NIP)
 select *, Date('now') - Date(umur) as Umur_saat_ini from Mahasiswa order by Umur_saat_ini asc;
 
 --8.tampilkan kontrak matakuliah yang harus diulang,serta tampilkan data mahasiswa jurusan dan dosen secara lengkap
-select distinct * from kontrak join Mahasiswa on kontrak.NIM = Mahasiswa.NIM
+
+select distinct kontrak.kontrak_ID, kontrak.Matkul_ID, kontrak.Nilai, Mahasiswa.NIM, Mahasiswa.Nama_Mahasiswa, Mahasiswa.Alamat, 
+Mahasiswa.umur, Jurusan.Jurusan_ID, Jurusan.Jurusan_name,kontrak.NIP, Dosen.Nama_Dosen from kontrak join Mahasiswa on kontrak.NIM = Mahasiswa.NIM
 join Jurusan on mahasiswa.Jurusan_ID = Jurusan.Jurusan_ID
 join Dosen on kontrak.NIP = Dosen.NIP where kontrak.Nilai >= 'D';
 
+--select distinct * from kontrak join Mahasiswa on kontrak.NIM = Mahasiswa.NIM
