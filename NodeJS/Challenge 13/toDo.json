@@ -1,1 +1,1 @@
-[{"ID":1,"title":"ingin jago coding","complete":false,"tag":"wajib"},{"ID":2,"title":"ingin liburan","complete":false,"tag":["bali","lombok"]},{"ID":3,"title":"vacation","complete":false,"tag":""}]
+[{"ID":1,"title":"ingin jago coding","complete":true,"tag":["wajib"]},{"ID":2,"title":"main game","complete":true,"tag":""},{"ID":3,"title":"liburan","complete":true,"tag":""}]

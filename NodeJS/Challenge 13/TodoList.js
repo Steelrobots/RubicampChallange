@@ -57,8 +57,12 @@ switch (command) {
     case 'delete':
 
         console.log(`"${obj[hapus].title}" telah dihapus dari daftar`);
-        obj.splice(hapus, 1);
+        obj.splice(hapus, 1); 
+        obj.forEach((item, index )=> {
+            item.ID = index + 1;
         fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
+       
+        });
 
         break;
 
