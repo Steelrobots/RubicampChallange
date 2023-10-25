@@ -48,7 +48,7 @@ switch (command) {
 
         if (inform) {
             console.log(`${inform} telah ditambahkan.`);
-            obj.push({ "ID": tambah, "title": inform, "complete": false, tag: "" });
+            obj.push({ "ID": tambah, "title": inform, "complete": false, tag: [ ] });
             fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         } else if (!inform || inform == " ") return;
 
@@ -113,10 +113,15 @@ switch (command) {
         break;
     case 'tag':
         console.log(`"Tag ${process.argv.slice(4)}" telah ditambahkan ke dalam '${obj[obj.findIndex(x => x.ID == id)].title} `);
-       obj[hapus].tags = process.argv.slice(4)
+        const tags = process.argv.slice(4)
+        tags.forEach((tag) =>{
+            if (!obj[hapus].tag.includes(tag)){
+                obj[hapus].tag.push(tag)
+            }
+        })
         
         
-        
+     
         fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         break;
 

@@ -11,7 +11,7 @@
    {
       "ID": 2,
       "title": "sql",
-      "complete": false,
+      "complete": true,
       "tag": [
          "db",
          "lagi"
@@ -20,36 +20,31 @@
    {
       "ID": 3,
       "title": "futsal",
-      "complete": false,
+      "complete": true,
       "tag": [
          "libur",
-         "olahraga"
+         "olahraga",
+         "main"
       ]
    },
    {
       "ID": 4,
-      "title": "liburan sekolah",
+      "title": "makan",
       "complete": false,
       "tag": [
-         "libur",
-         "lagi",
-         "bisa"
+         "makan",
+         "minum",
+         "kebutuhan"
       ]
    },
    {
       "ID": 5,
-      "title": "OOP",
+      "title": "belajar forEach",
       "complete": false,
-      "tag": "",
-      "tags": [
-         "bisa",
-         "jadi"
+      "tag": [
+         "selesai",
+         "ahli",
+         "belajar"
       ]
-   },
-   {
-      "ID": 6,
-      "title": "selesai tag",
-      "complete": false,
-      "tag": ""
    }
 ]
