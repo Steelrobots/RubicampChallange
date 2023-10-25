@@ -49,7 +49,7 @@ switch (command) {
         if (inform) {
             console.log(`${inform} telah ditambahkan.`);
             obj.push({ "ID": tambah, "title": inform, "complete": false, tag: "" });
-            fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
+            fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         } else if (!inform || inform == " ") return;
 
         break;
@@ -60,7 +60,7 @@ switch (command) {
         obj.splice(hapus, 1); 
         obj.forEach((item, index )=> {
             item.ID = index + 1;
-        fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
+        fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
        
         });
 
@@ -70,14 +70,14 @@ switch (command) {
 
         console.log(`"${obj[hapus].title}" telah selesai.`);
         obj[id - 1].complete = true;
-        fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
+        fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
 
         break;
 
     case 'uncomplete':
         console.log(`"${obj[hapus].title}" status selesai dibatalkan.`);
         obj[id - 1].complete = false;
-        fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
+        fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         break;
 
     case 'list:outstanding':
@@ -113,13 +113,11 @@ switch (command) {
         break;
     case 'tag':
         console.log(`"Tag ${process.argv.slice(4)}" telah ditambahkan ke dalam '${obj[obj.findIndex(x => x.ID == id)].title} `);
-       for (let x of process.argv.slice(4)) {
-        if(!obj[hapus].tag.includes(x)){
-            obj[hapus].tag.push(x)
-        }
+       obj[hapus].tags = process.argv.slice(4)
         
-       } 
-        fs.writeFileSync("./toDo.json", JSON.stringify(obj), "utf-8");
+        
+        
+        fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         break;
 
 

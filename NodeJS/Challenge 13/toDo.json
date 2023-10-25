@@ -1,1 +1,55 @@
-[{"ID":1,"title":"ingin jago coding","complete":true,"tag":["harus","coding","coding","fe"]},{"ID":2,"title":"naik haji","complete":true,"tag":["lagi","haji"]},{"ID":3,"title":"sql","complete":false,"tag":["db"]},{"ID":4,"title":"futsal","complete":false,"tag":["libur","olahraga"]},{"ID":5,"title":"liburan sekolah","complete":false,"tag":["libur","lagi"]}]
+[
+   {
+      "ID": 1,
+      "title": "naik haji",
+      "complete": true,
+      "tag": [
+         "lagi",
+         "haji"
+      ]
+   },
+   {
+      "ID": 2,
+      "title": "sql",
+      "complete": false,
+      "tag": [
+         "db",
+         "lagi"
+      ]
+   },
+   {
+      "ID": 3,
+      "title": "futsal",
+      "complete": false,
+      "tag": [
+         "libur",
+         "olahraga"
+      ]
+   },
+   {
+      "ID": 4,
+      "title": "liburan sekolah",
+      "complete": false,
+      "tag": [
+         "libur",
+         "lagi",
+         "bisa"
+      ]
+   },
+   {
+      "ID": 5,
+      "title": "OOP",
+      "complete": false,
+      "tag": "",
+      "tags": [
+         "bisa",
+         "jadi"
+      ]
+   },
+   {
+      "ID": 6,
+      "title": "selesai tag",
+      "complete": false,
+      "tag": ""
+   }
+]
