@@ -53,7 +53,7 @@ class CarFactory {
         }
         // console.log(this.cars)
         for (let i = 0; i <= Math.floor(Math.random() * 6); i++) {
-            this.cars.push(new Supra('Michelin', 18, 'Supra', Car.serialNumber(), 2, 2, 4, year, 6));
+            this.cars.push(new Supra('Michelin', 18, 'Supra', Car.serialNumber(), 2, 2, 4, year, 2));
 
         }
     };
