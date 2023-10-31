@@ -1,12 +1,12 @@
 {
   "name": "calculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tugas Kalkulator",
   "main": "Calculator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Andri Priyadi",
   "license": "ISC",
   "type": "module"
 }
