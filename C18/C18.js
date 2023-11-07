@@ -1,3 +1,4 @@
+import DosenController from "./Controller/dosenController.js"
 import JurusanController from "./Controller/jurusanController.js"
 
 
@@ -11,5 +12,5 @@ export function line(){
 };
 
 
-
-JurusanController.option()
+// JurusanController.option()
+ DosenController.option()

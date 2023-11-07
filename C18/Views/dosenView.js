@@ -7,10 +7,10 @@ export function option() {
 
     console.log(`
 Silahkan pilih opsi dibawah ini:
-[1] Daftar Jurusan
-[2] Cari Jurusan
-[3] Tambah Jurusan
-[4] Hapus Jurusan
+[1] Daftar Dosen
+[2] Cari Dosen
+[3] Tambah Dosen
+[4] Hapus Dosen
 [5] Kembali `)
 
     line()
@@ -18,10 +18,10 @@ Silahkan pilih opsi dibawah ini:
 
 export function tabel(array) {
     let table = new Table({
-        head: ['Kode Jurusan', 'Nama Jurusan']
+        head: ['NIP', 'Nama Dosen']
     });
     array.forEach(item => {
-        table.push([item.Jurusan_ID, item.Jurusan_name])
+        table.push([item.NIP, item.Nama_Dosen])
     });
     console.log(table.toString())
 };
@@ -30,9 +30,9 @@ export function findResult(data){
     line()
     
     console.log(`
-Detail jurusan dengan kode : '${data.Jurusan_ID}'
-Kode Jurusan    : ${data.Jurusan_ID}
-Nama Jurusan    : ${data.Jurusan_nama}
+Detail Dosen dengan NIP : '${data.NIP}'
+NIP         : ${data.NIP}
+Nama Dosen  : ${data.Nama_Dosen}
     `)
 };
 

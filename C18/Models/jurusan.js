@@ -10,14 +10,16 @@ export default class Jurusan {
             [this.Jurusan_ID, this.Jurusan_name], (err, data) => {
                 if (err) console.log(err)
                 else data
-              
+
             })
     }
 
-    static list(next) {
-        db.all("SELECT * FROM Jurusan", (err, rows) => {
-            if (err) console.log(err)
-            else next(rows)
+    static list() {
+        return new Promise(function (resolve, reject) {
+            db.all("SELECT * FROM Jurusan", (err, data) => {
+                if (err) reject(err)
+                else resolve(data)
+            });
         });
     };
 
@@ -27,10 +29,11 @@ export default class Jurusan {
     };
 
     static find(Jurusan_ID) {
-        return new Promise(function(resolve,reject){db.get("SELECT * FROM Jurusan WHERE Jurusan_ID = ?", [Jurusan_ID], (err, data) => {
-            if (err) reject(err);
-            else resolve(data)
-        })
+        return new Promise(function (resolve, reject) {
+            db.get("SELECT * FROM Jurusan WHERE Jurusan_ID = ?", [Jurusan_ID], (err, data) => {
+                if (err) reject(err);
+                else resolve(data)
+            })
         })
     };
     static delete(Jurusan_ID) {
