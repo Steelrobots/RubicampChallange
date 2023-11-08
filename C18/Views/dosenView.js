@@ -16,7 +16,7 @@ Silahkan pilih opsi dibawah ini:
     line()
 }
 
-export function tabel(array) {
+export function tabelDosen(array) {
     let table = new Table({
         head: ['NIP', 'Nama Dosen']
     });

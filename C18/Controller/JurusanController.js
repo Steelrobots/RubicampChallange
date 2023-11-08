@@ -1,5 +1,5 @@
-import Jurusan from "../Models/jurusan.js";
-import { findResult, option, tabel } from "../Views/jurusanView.js";
+import Jurusan from "../Models/Jurusan.js";
+import { findResult, option, tabelJurusan } from "../Views/jurusanView.js";
 import { rl } from "../connect.js";
 
 
@@ -40,7 +40,7 @@ export default class JurusanController {
     static async listAll() {
         const jurusan = await Jurusan.list();
         if(jurusan)
-        {tabel(jurusan)
+        {tabelJurusan(jurusan)
             JurusanController.option()
         } else {
             console.log('terjadi kesalahan dalam proses penampilan data, silahkan coba lagi')
@@ -65,7 +65,7 @@ export default class JurusanController {
         console.log('Lengkapi data di bawah ini:\n');
         const jurusan = await Jurusan.list()
         if(jurusan){
-            tabel(jurusan);
+            tabelJurusan(jurusan);
             rl.question('Kode Jurusan : ', async (kode) => {
                 rl.question('Nama Jurusan : ', async (nama) => {
                     if (await Jurusan.find(kode)) {

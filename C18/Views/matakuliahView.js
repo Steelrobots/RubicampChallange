@@ -7,21 +7,21 @@ export function option() {
 
     console.log(`
 Silahkan pilih opsi dibawah ini:
-[1] Daftar Jurusan
-[2] Cari Jurusan
-[3] Tambah Jurusan
-[4] Hapus Jurusan
+[1] Daftar Mata Kuliah
+[2] Cari Mata Kuliah
+[3] Tambah Mata Kuliah
+[4] Hapus Mata Kuliah
 [5] Kembali `)
 
     line()
 }
 
-export function tabelJurusan(array) {
+export function tabelMatakuliah(array) {
     let table = new Table({
-        head: ['Kode Jurusan', 'Nama Jurusan']
+        head: ['ID Mata kuliah', 'Mata Kuliah']
     });
     array.forEach(item => {
-        table.push([item.Jurusan_ID, item.Jurusan_name])
+        table.push([item.Matkul_ID, item.Matkul_nama])
     });
     console.log(table.toString())
 };
@@ -30,9 +30,9 @@ export function findResult(data){
     line()
     
     console.log(`
-Detail jurusan dengan kode : '${data.Jurusan_ID}'
-Kode Jurusan    : ${data.Jurusan_ID}
-Nama Jurusan    : ${data.Jurusan_nama}
+Detail Mata Kuliah dengan Id : '${data.Matkul_ID}'
+ID Mata Kuliah        : ${data.Matkul_ID}
+Mata Kuliah           : ${data.Matkul_nama}
     `)
 };
 

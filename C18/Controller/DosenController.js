@@ -1,5 +1,5 @@
-import Dosen from "../Models/dosen.js";
-import { findResult, option, tabel } from "../Views/dosenView.js";
+import Dosen from "../Models/Dosen.js";
+import { findResult, option, tabelDosen } from "../Views/dosenView.js";
 import { rl } from "../connect.js";
 
 
@@ -40,7 +40,7 @@ export default class DosenController {
     static async listAll() {
         const dosen = await Dosen.list();
         if(dosen)
-        {tabel(dosen)
+        {tabelDosen(dosen)
             DosenController.option()
         } else {
             console.log('terjadi kesalahan dalam proses penampilan data, silahkan coba lagi')

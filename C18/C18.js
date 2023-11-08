@@ -1,5 +1,7 @@
-import DosenController from "./Controller/dosenController.js"
-import JurusanController from "./Controller/jurusanController.js"
+import DosenController from "./Controller/DosenController.js"
+import JurusanController from "./Controller/JurusanController.js"
+import MahasiswaController from "./Controller/MahasiswaController.js"
+import MatkulController from "./Controller/MatkulController.js"
 
 
 
@@ -13,4 +15,6 @@ export function line(){
 
 
 // JurusanController.option()
- DosenController.option()
+//  DosenController.option()
+//  MatkulController.option()
+MahasiswaController.option()
