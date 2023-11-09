@@ -23,8 +23,8 @@ export default class Mahasiswa {
             });
         });
     };
-    static add(NIM, Nama_Mahasiswa, ALamat, Jurusan_ID, umur) {
-        const mahasiswa = new Mahasiswa({ NIM: NIM, Nama_Mahasiswa: Nama_Mahasiswa, ALamat: ALamat, Jurusan_ID: Jurusan_ID, umur: umur });
+    static add(NIM, Nama_Mahasiswa, Alamat, Jurusan_ID, umur) {
+        const mahasiswa = new Mahasiswa({ NIM: NIM, Nama_Mahasiswa: Nama_Mahasiswa, Alamat: Alamat, Jurusan_ID: Jurusan_ID, umur: umur });
         return mahasiswa.save()
     };
 

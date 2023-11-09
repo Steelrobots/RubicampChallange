@@ -1,5 +1,6 @@
+import { home } from "../C18.js";
 import Dosen from "../Models/Dosen.js";
-import { findResult, option, tabelDosen } from "../Views/dosenView.js";
+import { findResult, option, tabelDosen } from "../Views/DosenView.js";
 import { rl } from "../connect.js";
 
 
@@ -23,7 +24,7 @@ export default class DosenController {
                     DosenController.delete();
                     break;
                 case '5':
-                    DosenController.home();
+                    home();
                     break;
                 default:
                     console.log('Nomor yang anda masukkan tidak sesuai, silahkan coba lagi');
@@ -39,8 +40,8 @@ export default class DosenController {
 
     static async listAll() {
         const dosen = await Dosen.list();
-        if(dosen)
-        {tabelDosen(dosen)
+        if (dosen) {
+            tabelDosen(dosen)
             DosenController.option()
         } else {
             console.log('terjadi kesalahan dalam proses penampilan data, silahkan coba lagi')
@@ -52,7 +53,7 @@ export default class DosenController {
         rl.question('Masukkan NIP: ', async (kode) => {
             const search = await Dosen.find(kode);
             if (search) {
-               findResult(search);
+                findResult(search);
                 DosenController.option()
             } else {
                 console.log(`Dosen dengan NIP ${kode}, tidak terdaftar`);
@@ -64,7 +65,7 @@ export default class DosenController {
     static async add() {
         console.log('Lengkapi data di bawah ini:\n');
         const dosen = await Dosen.list()
-        if(dosen){
+        if (dosen) {
             tabel(dosen);
             rl.question('NIP : ', async (kode) => {
                 rl.question('Nama Dosen : ', async (nama) => {
@@ -83,14 +84,18 @@ export default class DosenController {
             DosenController.option();
         }
     }
-    
-    static delete(){
-        rl.question('Masukkan NIP: ', async (kode) =>{
+
+    static delete() {
+        rl.question('Masukkan NIP: ', async (kode) => {
             const dosen = await Dosen.find(kode)
-            if(dosen)
-            console.log(`Data Dosen ${kode}, telah dihapus`)
-         Dosen.delete(kode),
-        DosenController.option()
+            if (dosen) {
+                console.log(`Data Dosen ${kode}, telah dihapus`)
+                await Dosen.delete(kode),
+                DosenController.option()
+            } else{
+                console.log('Gagal menghapus Dosen, NIP tidak terdaftar')
+                DosenController.option()
+            }
         })
     }
 

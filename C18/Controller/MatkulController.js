@@ -1,5 +1,6 @@
+import { home } from "../C18.js";
 import Matakuliah from "../Models/Matakuliah.js";
-import { findResult, option, tabelMatakuliah } from "../Views/matakuliahView.js";
+import { findResult, option, tabelMatakuliah } from "../Views/MatakuliahView.js";
 import { rl } from "../connect.js";
 
 
@@ -23,7 +24,7 @@ export default class MatkulController {
                     MatkulController.delete();
                     break;
                 case '5':
-                    MatkulController.home();
+                    home();
                     break;
                 default:
                     console.log('Nomor yang anda masukkan tidak sesuai, silahkan coba lagi');
@@ -90,9 +91,13 @@ export default class MatkulController {
         rl.question('Masukkan ID Mata kuliah: ', async (kode) => {
             const matkul = await Matakuliah.find(kode)
             if (matkul)
-                console.log(`Data Mata kuliah dengan ID ${kode}, telah dihapus`)
-            Matakuliah.delete(kode),
+                {console.log(`Data Mata kuliah dengan ID ${kode}, telah dihapus`)
+            await Matakuliah.delete(kode),
                 MatkulController.option()
+            } else{
+                console.log('Gagal menghapus Dosen, NIP tidak terdaftar')
+                MatkulController.option()
+            }
         })
     }
 

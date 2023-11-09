@@ -18,10 +18,10 @@ Silahkan pilih opsi dibawah ini:
 
 export function tabelMatakuliah(array) {
     let table = new Table({
-        head: ['ID Mata kuliah', 'Mata Kuliah']
+        head: ['ID Mata kuliah', 'Mata Kuliah', 'SKS']
     });
     array.forEach(item => {
-        table.push([item.Matkul_ID, item.Matkul_nama])
+        table.push([item.Matkul_ID, item.Matkul_nama, item.SKS])
     });
     console.log(table.toString())
 };

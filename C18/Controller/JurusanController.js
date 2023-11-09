@@ -1,5 +1,6 @@
+import { home } from "../C18.js";
 import Jurusan from "../Models/Jurusan.js";
-import { findResult, option, tabelJurusan } from "../Views/jurusanView.js";
+import { findResult, option, tabelJurusan } from "../Views/JurusanView.js";
 import { rl } from "../connect.js";
 
 
@@ -23,7 +24,7 @@ export default class JurusanController {
                     JurusanController.delete();
                     break;
                 case '5':
-                    JurusanController.home();
+                    home();
                     break;
                 default:
                     console.log('Nomor yang anda masukkan tidak sesuai, silahkan coba lagi');
@@ -39,8 +40,8 @@ export default class JurusanController {
 
     static async listAll() {
         const jurusan = await Jurusan.list();
-        if(jurusan)
-        {tabelJurusan(jurusan)
+        if (jurusan) {
+            tabelJurusan(jurusan)
             JurusanController.option()
         } else {
             console.log('terjadi kesalahan dalam proses penampilan data, silahkan coba lagi')
@@ -52,7 +53,7 @@ export default class JurusanController {
         rl.question('Masukkan Kode Jurusan: ', async (kode) => {
             const search = await Jurusan.find(kode);
             if (search) {
-               findResult(search);
+                findResult(search);
                 JurusanController.option()
             } else {
                 console.log(`Jurusan dengan kode ${kode}, tidak terdaftar`);
@@ -64,7 +65,7 @@ export default class JurusanController {
     static async add() {
         console.log('Lengkapi data di bawah ini:\n');
         const jurusan = await Jurusan.list()
-        if(jurusan){
+        if (jurusan) {
             tabelJurusan(jurusan);
             rl.question('Kode Jurusan : ', async (kode) => {
                 rl.question('Nama Jurusan : ', async (nama) => {
@@ -83,13 +84,17 @@ export default class JurusanController {
             JurusanController.option();
         }
     }
-    static delete(){
-        rl.question('Masukkan Kode Jurusan: ', async (kode) =>{
+    static delete() {
+        rl.question('Masukkan Kode Jurusan: ', async (kode) => {
             const jurusan = await Jurusan.find(kode)
-            if(jurusan)
-            console.log(`Data Jurusan ${kode}, telah dihapus`)
-         Jurusan.delete(kode),
-        JurusanController.option()
+            if (jurusan) {
+                console.log(`Data Jurusan ${kode}, telah dihapus`)
+                await Jurusan.delete(kode),
+                    JurusanController.option()
+            } else {
+                console.log('Gagal menghapus Jurusan, ID Jurusan tidak terdaftar')
+                Jurusan.option()
+            }
         })
     }
 
