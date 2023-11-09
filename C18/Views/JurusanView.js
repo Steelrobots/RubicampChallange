@@ -32,7 +32,7 @@ export function findResult(data){
     console.log(`
 Detail jurusan dengan kode : '${data.Jurusan_ID}'
 Kode Jurusan    : ${data.Jurusan_ID}
-Nama Jurusan    : ${data.Jurusan_nama}
+Nama Jurusan    : ${data.Jurusan_name}
     `)
 };
 

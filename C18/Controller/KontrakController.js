@@ -32,6 +32,7 @@ export default class KontrakController {
                     break;
                 case '6':
                     home();
+                    break;
                 default:
                     console.log('Nomor yang anda masukkan tidak sesuai, silahkan coba lagi');
                     KontrakController.option();
