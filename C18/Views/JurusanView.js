@@ -3,8 +3,7 @@ import { line } from "../C18.js";
 
 
 export function option() {
-    line()
-
+    line() 
     console.log(`
 Silahkan pilih opsi dibawah ini:
 [1] Daftar Jurusan
