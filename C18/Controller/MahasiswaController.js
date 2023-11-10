@@ -71,7 +71,7 @@ export default class MahasiswaController {
                         rl.question("Alamat :", (Alamat) => {
                             Jurusan.list().then((data) => {
                                 tabelJurusan(data)
-                                rl.question('Kode Jurusan', (Jurusan_ID) => {
+                                rl.question('Kode Jurusan :', (Jurusan_ID) => {
                                     Mahasiswa.find(NIM).then((data) => {
                                         console.log(`Mahasiswa dengan NIM ${data.NIM} sudah terdaftar. Silahkan masukkan data dengan benar`)
                                         MahasiswaController.option()
