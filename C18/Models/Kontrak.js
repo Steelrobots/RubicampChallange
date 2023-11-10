@@ -25,7 +25,7 @@ export default class Kontrak {
     }
     static find(NIM) {
         return new Promise(function (resolve, reject) {
-            db.all("SELECT * FROM kontrak WHERE NIM = ?", [NIM], (err, data) => {
+            db.all("SELECT kontrak_ID,Mata_kuliah.Matkul_nama AS Mata_kuliah,Dosen.Nama_Dosen AS Dosen,Nilai FROM kontrak LEFT JOIN Mata_kuliah ON Mata_kuliah.Matkul_ID = kontrak.Matkul_ID LEFT JOIN Dosen ON Dosen.NIP = kontrak.NIP WHERE NIM = ?", [NIM], (err, data) => {
                 if (err) reject(err)
                 else resolve(data)
             })

@@ -33,6 +33,7 @@ export function findResult(data){
 Detail Mata Kuliah dengan Id : '${data.Matkul_ID}'
 ID Mata Kuliah        : ${data.Matkul_ID}
 Mata Kuliah           : ${data.Matkul_nama}
+SKS                   : ${data.SKS}
     `)
 };
 

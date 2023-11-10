@@ -88,13 +88,9 @@ export default class KontrakController {
                         if (dosen) {
                             tabelDosen(dosen)
                             rl.question('masukkan NIP Dosen:', async (NIP) => {
-                                if (await Kontrak.findAdd(NIM, Matkul_ID)) {
-                                    console.log('Gagal menambahkan kontrak, kontrak telah terdaftar')
-                                } else {
                                     Kontrak.add(NIM, Matkul_ID, NIP)
                                     KontrakController.listAll()
-                                    KontrakController.option()
-                                }
+                                    KontrakController.option()  
                             })
                         }
                     })

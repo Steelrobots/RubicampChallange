@@ -29,10 +29,10 @@ export function tabelKontrak(array) {
 
 export function findResult(array) {
     let tabel = new Table({
-        head: ["ID", "NIM", "Kode Mata Kuliah", "NIP", "Nilai"]
+        head: ["ID", "Mata Kuliah", "Dosen", "Nilai"]
     })
     array.forEach(item => {
-        tabel.push([item.kontrak_ID, item.NIM, item.Matkul_ID, item.NIP, item.Nilai ? item.Nilai : ''])
+        tabel.push([item.kontrak_ID, item.Mata_kuliah, item.Dosen, item.Nilai ? item.Nilai : ''])
 
     });
     console.log(tabel.toString())
@@ -42,7 +42,7 @@ export function findKontrak(array) {
         head: ["ID", "Mata Kuliah", "Nilai"]
     })
     array.forEach(item => {
-        tabel.push([item.kontrak_ID, item.Matkul_ID, item.Nilai ? item.Nilai : ''])
+        tabel.push([item.kontrak_ID, item.Mata_kuliah, item.Nilai ? item.Nilai : ''])
 
     });
     console.log(tabel.toString())

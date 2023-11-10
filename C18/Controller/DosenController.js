@@ -66,7 +66,7 @@ export default class DosenController {
         console.log('Lengkapi data di bawah ini:\n');
         const dosen = await Dosen.list()
         if (dosen) {
-            tabel(dosen);
+            tabelDosen(dosen);
             rl.question('NIP : ', async (kode) => {
                 rl.question('Nama Dosen : ', async (nama) => {
                     if (await Dosen.find(kode)) {
