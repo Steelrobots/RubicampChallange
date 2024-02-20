@@ -29,7 +29,7 @@ select * from Mata_kuliah;
 
 create table Dosen(
     NIP character(4) primary key not null,
-    Nama_Dosen varchar(30) not null,
+    Nama_Dosen varchar(30) not null
 
 );
 

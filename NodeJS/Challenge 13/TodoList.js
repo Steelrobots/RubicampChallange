@@ -48,7 +48,7 @@ switch (command) {
 
         if (inform) {
             console.log(`${inform} telah ditambahkan.`);
-            obj.push({ "ID": tambah, "title": inform, "complete": false, tag: [ ] });
+            obj.push({ "ID": tambah, "title": inform, "complete": false, tag: [] });
             fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         } else if (!inform || inform == " ") return;
 
@@ -57,11 +57,11 @@ switch (command) {
     case 'delete':
 
         console.log(`"${obj[hapus].title}" telah dihapus dari daftar`);
-        obj.splice(hapus, 1); 
-        obj.forEach((item, index )=> {
+        obj.splice(hapus, 1);
+        obj.forEach((item, index) => {
             item.ID = index + 1;
-        fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
-       
+            fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
+
         });
 
         break;
@@ -112,16 +112,16 @@ switch (command) {
         }
         break;
     case 'tag':
-        console.log(`"Tag ${process.argv.slice(4)}" telah ditambahkan ke dalam '${obj[obj.findIndex(x => x.ID == id)].title} `);
         const tags = process.argv.slice(4)
-        tags.forEach((tag) =>{
-            if (!obj[hapus].tag.includes(tag)){
+        const tagsAdded = []
+        tags.forEach((tag) => {
+            if (!obj[hapus].tag.includes(tag)) {
                 obj[hapus].tag.push(tag)
+                tagsAdded.push(tag)
             }
         })
-        
-        
-     
+        console.log(`"Tag ${tagsAdded}" telah ditambahkan ke dalam '${obj[obj.findIndex(x => x.ID == id)].title} `);
+
         fs.writeFileSync("./toDo.json", JSON.stringify(obj, null, 3), "utf-8");
         break;
 

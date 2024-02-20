@@ -35,6 +35,7 @@ export function findResult(array) {
         tabel.push([item.kontrak_ID, item.Mata_kuliah, item.Dosen, item.Nilai ? item.Nilai : ''])
 
     });
+    console.log(`Nama Mahasiswa : ${array[0].Nama}`)
     console.log(tabel.toString())
 }
 export function findKontrak(array) {

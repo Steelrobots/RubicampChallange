@@ -13,7 +13,7 @@ const rl = readline.createInterface({
 
 reference.push({ 'definition': 'sebutkan kota yang memiliki julukan Kota Intan?', 'term': 'garut' });
 
-console.log('Selamat datang di permainan Tebak Kata, silahkan isi dengan jawaban yang benar ya!');
+console.log('Selamat datang di permainan Tebak Kata, silahkan isi dengan jawaban yang benar ya!\n');
 
 let i = 0
 console.log(`pertanyaan: ${reference[i].definition}`);
